@@ -1,4 +1,5 @@
 # vue-password-generator
+## Demo: https://vue-password-generator.herokuapp.com/
 
 ## Project setup
 ```
