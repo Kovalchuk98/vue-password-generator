@@ -2,59 +2,36 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="#041948"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+    <h3>Password Generator</h3>
     </v-app-bar>
 
-    <v-main>
-      <HelloWorld/>
+    <v-main class="wrapper">
+      <PasswordForm/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import PasswordForm from './components/PasswordForm';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    PasswordForm,
   },
 
   data: () => ({
-    //
   }),
 };
 </script>
+
+<style lang="scss">
+    .wrapper {
+     background-color: #8BC6EC;
+     background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)
+    }
+</style>
