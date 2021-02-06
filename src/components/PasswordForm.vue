@@ -10,22 +10,25 @@
               solo
               v-model="passwordValue"
             ></v-text-field>
-              <v-tooltip bottom :open-on-click="true" :open-on-hover="false" close-delay="2000">
-                <template #activator="{ on }">
-                  <v-btn
-                  class="ml-2 my-2"
-                  color="error"
-                  fab
-                  x-small
-                  @click="on.click" 
-                  @blur="on.blur" 
-                  retain-focus-on-click
-                >
-                  <v-icon>mdi-content-copy</v-icon>
-                </v-btn>
+              <v-tooltip v-model="show" bottom :open-on-hover="false" close-delay="1500">
+                <template v-slot:activator="{ on }">
+                  <div v-on="on">
+                    <v-btn
+                    class="ml-2 my-2"
+                    color="error"
+                    fab
+                    x-small
+                    @click="copyPassword"
+                    @blur="on.blur" 
+                    retain-focus-on-click
+                  >
+                    <v-icon>mdi-content-copy</v-icon>
+                  </v-btn>
+                  </div>
                 </template>
                 <span>Copied</span>
               </v-tooltip>
+
             </div>
             <v-btn class="blue rounded-xl my-2" @click="generatePassword" style="color: #fff;">
               Generate password
@@ -99,6 +102,7 @@
           let textToCopy = this.$refs.textToCopy.$el.querySelector('input')
           textToCopy.select()
           document.execCommand("copy");
+          textToCopy.blur()
       },
       generatePassword () {
        
@@ -161,7 +165,6 @@
   .pass_wrapper{
     border-radius: .3rem;
     color: #041948 !important;
-    // background-color: #041948;
     background-color: #fff;
     border: 1px solid #fff;
   }
